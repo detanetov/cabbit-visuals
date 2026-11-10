@@ -1,0 +1,40 @@
+name: Publish Cabbit Visuals release
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish.yml']
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: cabbit-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: detanetov/cabbit-visuals
+      RELEASE_VERSION: '0.8.1.0'
+      EXPECTED_SHA256: 'd188c66761e417eb4ab2437fa4e4aede8d6783fe7b68336cccb310f4fff73ce1'
+      MANIFEST_BASE64: 'eyJwYXlsb2FkIjoiZXlKelkyaGxiV0VpT2pFc0luWmxjbk5wYjI0aU9pSXdMamd1TVM0d0lpd2lkWEpzSWpvaWFIUjBjSE02THk5bmFYUm9kV0l1WTI5dEwyUmxkR0Z1WlhSdmRpOWpZV0ppYVhRdGRtbHpkV0ZzY3k5eVpXeGxZWE5sY3k5a2IzZHViRzloWkM5Mk1DNDRMakV1TUM5RFlXSmlhWFJXYVhOMVlXeHpMbVY0WlNJc0luTm9ZVEkxTmlJNkltUXhPRGhqTmpZM05qRmxOREUzWldJMFlXSXlORE0zWm1FMFpUUmhaV1JsT0dRMk56Z3pabVUzWWpZNE16TTJZMk5qWWpNeE1HWTBabVptTnpOalpURWlMQ0p6YVhwbElqbzNPRGszTmpBd2ZRPT0iLCJzaWduYXR1cmUiOiJ3SnZOUUlBUktkSnZidnNUVjNpeWxFZzE2YUljNGFZTUNJbDhyVHhiTXhIS04zWXdWMi9hVlNMSG5CSG1yZC9TTk9sekNHWkFzbGhscXhPaUQ5MFlFaWZUVDIrNkZua1dndnFZY2VwZFBldVZjdlhkSEVVbStFOVRKdzhoeis0VGNLV3cvQm1pSFdaS3ZmclBFYWJPaWk2RTVLM1NzaHRpMi9FMUNRcGpkVXpBT21uN2dwRDNlampBaVluY0M0a3cyRTlvSUlQZS9pUTdCTjlwaUVIMmtDSDlqRDhOWXlMWUZmUitMbCswYVVnaGpweDBNOWZQakh1VklqN3Z1MzkzdEdFVWV5ajdnWnE5Sm0rcHE4YUIxQmR6aVAvZ2tZbXVwTHRNbUZ5ZGxidXFDcU9LVlIwYUJqWTBKS1lOTTJpKzA0SGVhVlpuVFY0d3h6NFJ6Z3FweTFFampGMjhUMTM4THhGTDBvSk5KZEtROWdZSGVLb2U4U3ZiWDJLSmg5bTk1L1B0b1EvQXNTbFdvK2RIbWd4eVRuc1VRVExoUVFFYlVmQWZRZGU1SG5SRUFSUFd5SlA0bmNoYXRxVXB5WXFZci9qRUd3UkRVVHk0S3BMZUEwNnZBYVJxVVVEbThDMTZFeGs2TGpMd2xmMzgwZWcvWnArSGlMWmNOMHRydFRrMCJ9'
+    steps:
+      - name: Download and verify signed release files
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --max-time 120 --proto '=https' --tlsv1.2 --user-agent 'CabbitVisuals-CI/0.8.1' 'https://cabbit-visuals.captivatingode.chatgpt.site/releases/0.8.1.0/CabbitVisuals.exe' --output CabbitVisuals.exe
+          printf '%s  CabbitVisuals.exe\n' "$EXPECTED_SHA256" | sha256sum --check --strict
+          printf '%s' "$MANIFEST_BASE64" | base64 --decode > stable.json
+      - name: Publish GitHub release
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="v$RELEASE_VERSION"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" CabbitVisuals.exe stable.json --clobber
+          else
+            gh release create "$TAG" CabbitVisuals.exe stable.json --target "$GITHUB_SHA" --latest --title 'Cabbit Visuals 0.8.1' --notes 'Автообновления через GitHub Releases. Улучшено восстановление сохранённого входа: при временных сетевых ошибках сессия сохраняется, подключение повторяется автоматически.'
+          fi
