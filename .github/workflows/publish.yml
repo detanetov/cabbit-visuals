@@ -17,15 +17,15 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: detanetov/cabbit-visuals
-      RELEASE_VERSION: '0.8.2.0'
-      EXPECTED_SHA256: '5a3e51c06a966c7078a791dc16c83abc60c00175cfa2a5e33007ddbbdc01dba4'
-      MANIFEST_BASE64: 'eyJwYXlsb2FkIjoiZXlKelkyaGxiV0VpT2pFc0luWmxjbk5wYjI0aU9pSXdMamd1TWk0d0lpd2lkWEpzSWpvaWFIUjBjSE02THk5bmFYUm9kV0l1WTI5dEwyUmxkR0Z1WlhSdmRpOWpZV0ppYVhRdGRtbHpkV0ZzY3k5eVpXeGxZWE5sY3k5a2IzZHViRzloWkM5Mk1DNDRMakl1TUM5RFlXSmlhWFJXYVhOMVlXeHpMbVY0WlNJc0luTm9ZVEkxTmlJNklqVmhNMlUxTVdNd05tRTVOalpqTnpBM09HRTNPVEZrWXpFMll6Z3pZV0pqTmpCak1EQXhOelZqWm1FeVlUVmxNek13TURka1pHSmlaR013TVdSaVlUUWlMQ0p6YVhwbElqbzNPVEF3TmpjeWZRPT0iLCJzaWduYXR1cmUiOiJNaVN1Y1I3VFJsem1CMDIyOGE1bGpqR085V2hDR3ZOQUJCTE1oMjBJRHdLUHVqaWx1UDVLUGFVSnowV0s2VU5TTDAxUDRXbkVOWkp6UHZsaVZoY0FJbXFGTncvWEc0UzRkQU8xM0VjV1lYN2Uyb0lOYzJEQklYZG94YndDRFBhZGZCV200RzZJT0VkeEx1SnRhKzkxMUF4TjJ2ZENUYktxQ0gvMnJqTkVNQjFobVFzSlhqL2JsYzIxUkNMMHVQdFBWRVFtY0lWczRoOFd3RFB2N2hjd3hPZ3Q1cDArNmJnNWdXMUhQeE1jL0JpaWhydFQvQ1JYNzE3N3pkV3cwV1BvUjc4TFBPeWxmYmhFdmttS3BobHZVTThuNEVDRW9PeTd2TzQxaWJOMWJJSmpqa0FSU3JBRk0xekNMOHlDWXVoMEVYVTM4aS9KbjhyOEpaNTdlaEhMSGdPeG5USjJqdll3RWpibkFBcnE5MCt6WTI5N1I5UnN1OER0a2NtSFFvckcxUlVSMWtnQ09vOGNrYzA2UDArdzAvRG5VUy8zL0tXaFlBb3lOQ1U1bG5LRVBudEVVSlBQT0QvUHN2RmF3M09KblRBam9xaW4yVFJQaE1tY2V2cjh0THpkbE81NENwM2gydGtDT08yVlpWYzFLcmNGTE9GVG55Mlk5Q1JjS1QzUiJ9'
+      RELEASE_VERSION: '0.8.3.0'
+      EXPECTED_SHA256: 'a1642f86319e1779ee850f5e404f3f36b7c8c5210e16963bc0a04f2168c86e51'
+      MANIFEST_BASE64: 'eyJwYXlsb2FkIjoiZXlKelkyaGxiV0VpT2pFc0luWmxjbk5wYjI0aU9pSXdMamd1TXk0d0lpd2lkWEpzSWpvaWFIUjBjSE02THk5bmFYUm9kV0l1WTI5dEwyUmxkR0Z1WlhSdmRpOWpZV0ppYVhRdGRtbHpkV0ZzY3k5eVpXeGxZWE5sY3k5a2IzZHViRzloWkM5Mk1DNDRMak11TUM5RFlXSmlhWFJXYVhOMVlXeHpMbVY0WlNJc0luTm9ZVEkxTmlJNkltRXhOalF5WmpnMk16RTVaVEUzTnpsbFpUZzFNR1kxWlRRd05HWXpaak0yWWpkak9HTTFNakV3WlRFMk9UWXpZbU13WVRBMFpqSXhOamhqT0RabE5URWlMQ0p6YVhwbElqbzNPVEF3TVRZd2ZRPT0iLCJzaWduYXR1cmUiOiJyQjNFeEZHY1IvSnkvWTh0TmNSRVgvcEtsY3lyeFloM29pVjFVOG9jMlltVmZ0SUpFNVhaLzlHbnA0TWhQUjUyZFFYZ0lJam5ZUGtyWjR2L1lFOEZuNFBGMGFoeUVIVExnTktjbWpiOUJoaHp5WjVTQk91TWgvdXlWZ014RzhCc2duek01TWZkazdHeVZxVFVtOUZuR1JNcGxpZi9Cc0kxM3l4bHVwamluK2F3SmdxT0gvdFRsYzIvSVRSUk5LNGFNZjA2R0pOQWxhTUYzNi9vZHVZNWtJWnMzZHFDTE45V09JdDVrc3loYUpDdzc2VXowY3Y1eFZaU3hEeEI5aDZRa1pYdmNKaWFNQjYrbXlpSlRQNUpJVGEvQzBXN0dtQzQzdUZRVFNNOXRqNmgyNkpmSSt2VjJ1UzduY21PczQxYzdwb24ycU0raExkNS9DU2hPSEpham1IcmRneTFvcCs3bVJFWmREWktHT1NKZnMxZGQwZGRkdC9CNG5kMnk2cW5TaUwwc0grK2E1cnQxWXMvVGZ6QmdJT1hrOTlSdWZ6dzhCc1FlOUJyNElwR3hOR1BiWVg3NlRhRit6ZzNjMG1qK2tqemFLM1FqamxNZGlxajhwbTYrbHFnWlZjczRzMFA5K1IxT2owZjBVb1F6dU1jVG9ja1cwaGFPQnczR0x1cCJ9'
     steps:
       - name: Download and verify signed release files
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 --max-time 120 --proto '=https' --tlsv1.2 --user-agent 'CabbitVisuals-CI/0.8.2' 'https://cabbit-visuals.captivatingode.chatgpt.site/releases/0.8.2.0/CabbitVisuals.exe' --output CabbitVisuals.exe
+          curl --fail --location --retry 3 --max-time 120 --proto '=https' --tlsv1.2 --user-agent 'CabbitVisuals-CI/0.8.3' 'https://cabbit-visuals.captivatingode.chatgpt.site/releases/0.8.3.0/CabbitVisuals.exe' --output CabbitVisuals.exe
           printf '%s  CabbitVisuals.exe\n' "$EXPECTED_SHA256" | sha256sum --check --strict
           printf '%s' "$MANIFEST_BASE64" | base64 --decode > stable.json
       - name: Publish GitHub release
@@ -36,5 +36,5 @@ jobs:
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" CabbitVisuals.exe stable.json --clobber
           else
-            gh release create "$TAG" CabbitVisuals.exe stable.json --target "$GITHUB_SHA" --latest --title 'Cabbit Visuals 0.8.2' --notes 'Исправлено бесконечное ожидание входа. Попытка ограничена 12 секундами; поздний ответ не меняет аккаунт. Убран автоматический цикл переподключений, сохранён ручной повтор входа.'
+            gh release create "$TAG" CabbitVisuals.exe stable.json --target "$GITHUB_SHA" --latest --title 'Cabbit Visuals 0.8.3' --notes 'Автообновления временно отключены. Исправлен запуск восстановления аккаунта: стартовый индикатор больше не блокирует запрос входа.'
           fi
